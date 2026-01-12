@@ -182,7 +182,6 @@ contract EventTicket is ERC721, ERC721Enumerable, Ownable, ReentrancyGuard {
             (bool success, ) = payable(msg.sender).call{value: refund}("");
             if (!success) {
                 // If refund fails, keep the excess (rare edge case)
-                // User can still contact support
             }
         }
         

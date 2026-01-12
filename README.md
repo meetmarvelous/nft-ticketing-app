@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NFT Event Ticketing System
 
-## Getting Started
+A production-ready decentralized web application for event ticketing using ERC-721 NFTs.
 
-First, run the development server:
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Deployed Contract
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Field        | Value                                                                                                |
+| ------------ | ---------------------------------------------------------------------------------------------------- |
+| **Network**  | Sepolia Testnet                                                                                      |
+| **Address**  | `0xef657f0E38a7Fc7a80D766B6C1B6d24F1976EC16`                                                         |
+| **Explorer** | [View on Etherscan](https://sepolia.etherscan.io/address/0xef657f0E38a7Fc7a80D766B6C1B6d24F1976EC16) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Environment Setup
 
-## Learn More
+Copy `.env.example` to `.env.local` and configure:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Blockchain
+SEPOLIA_RPC_URL=your_rpc_url
+PRIVATE_KEY=your_private_key
+ETHERSCAN_API_KEY=your_etherscan_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Frontend
+NEXT_PUBLIC_CONTRACT_ADDRESS=0xef657f0E38a7Fc7a80D766B6C1B6d24F1976EC16
+NEXT_PUBLIC_CHAIN_ID=11155111
+NEXT_PUBLIC_RPC_URL=your_rpc_url
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Scripts
 
-## Deploy on Vercel
+| Command                  | Description              |
+| ------------------------ | ------------------------ |
+| `npm run dev`            | Start development server |
+| `npm run build`          | Build for production     |
+| `npm run compile`        | Compile smart contracts  |
+| `npm run test:contracts` | Run contract tests       |
+| `npm run deploy:sepolia` | Deploy to Sepolia        |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+├── contracts/          # Solidity smart contracts
+├── scripts/            # Deployment scripts
+├── test/               # Contract tests
+├── docs/               # Documentation
+└── src/
+    ├── app/            # Next.js pages
+    ├── components/     # React components
+    └── lib/            # Utilities & config
+```
+
+## 📚 Documentation
+
+- [Smart Contract](./docs/SMART_CONTRACT.md) - Contract functions & security
+- [Deployment Log](./docs/DEPLOYMENT.md) - Deployment details
+
+## 🔐 Features
+
+- **NFT Tickets** - ERC-721 standard, wallet-stored
+- **Anti-Fraud** - On-chain ownership verification
+- **Double-Scan Prevention** - One-time entry per ticket
+- **QR Verification** - Instant gate staff scanning
+- **Wallet Connect** - MetaMask, WalletConnect support
+
+## 📄 License
+
+MIT

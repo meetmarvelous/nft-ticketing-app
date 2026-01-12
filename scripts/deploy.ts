@@ -3,14 +3,14 @@ import { ethers, run, network } from "hardhat";
 async function main() {
   console.log("🚀 Starting EventTicket deployment...\n");
 
-  // Deployment parameters - customize as needed
+  // Deployment parameters
   const EVENT_NAME = "Tech Conference 2026";
   const EVENT_SYMBOL = "TECH26";
   const MAX_SUPPLY = 1000;
-  const TICKET_PRICE = ethers.parseEther("0.01"); // 0.01 ETH
+  const TICKET_PRICE = ethers.parseEther("0.01");
   const EVENT_DATE = Math.floor(new Date("2026-06-15").getTime() / 1000);
   const EVENT_VENUE = "Convention Center, San Francisco";
-  const EVENT_URI = "ipfs://QmExampleHash/metadata.json"; // Replace with actual IPFS URI
+  const EVENT_URI = "ipfs://QmExampleHash/metadata.json";
 
   console.log("📋 Deployment Parameters:");
   console.log(`   Event Name: ${EVENT_NAME}`);
@@ -20,14 +20,12 @@ async function main() {
   console.log(`   Event Date: ${new Date(EVENT_DATE * 1000).toISOString()}`);
   console.log(`   Venue: ${EVENT_VENUE}\n`);
 
-  // Get deployer
   const [deployer] = await ethers.getSigners();
   console.log(`👤 Deploying with account: ${deployer.address}`);
   
   const balance = await ethers.provider.getBalance(deployer.address);
   console.log(`💰 Account balance: ${ethers.formatEther(balance)} ETH\n`);
 
-  // Deploy contract
   console.log("📦 Deploying EventTicket contract...");
   
   const EventTicket = await ethers.getContractFactory("EventTicket");
@@ -46,7 +44,7 @@ async function main() {
   const contractAddress = await eventTicket.getAddress();
   console.log(`✅ EventTicket deployed to: ${contractAddress}\n`);
 
-  // Verify on Etherscan (if not local network)
+  // Verify on Etherscan
   if (network.name === "sepolia" && process.env.ETHERSCAN_API_KEY) {
     console.log("⏳ Waiting for block confirmations...");
     await eventTicket.deploymentTransaction()?.wait(6);
@@ -75,7 +73,6 @@ async function main() {
     }
   }
 
-  // Summary
   console.log("═══════════════════════════════════════════");
   console.log("           DEPLOYMENT SUMMARY              ");
   console.log("═══════════════════════════════════════════");

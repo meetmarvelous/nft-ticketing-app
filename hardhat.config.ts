@@ -14,9 +14,9 @@ const config: HardhatUserConfig = {
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200, // Gas optimization
+        runs: 200,
       },
-      viaIR: true, // Enable IR compilation for better optimization
+      viaIR: true,
     },
   },
   networks: {

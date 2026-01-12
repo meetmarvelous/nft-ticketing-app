@@ -28,6 +28,12 @@
       ]
     }
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "moduleResolution": "node"
+    }
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -40,3 +46,4 @@
     "node_modules"
   ]
 }
+
