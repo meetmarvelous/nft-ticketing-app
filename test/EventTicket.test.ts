@@ -13,7 +13,7 @@ describe("EventTicket", function () {
   const EVENT_NAME = "Test Event";
   const EVENT_SYMBOL = "TEST";
   const MAX_SUPPLY = 100;
-  const TICKET_PRICE = ethers.parseEther("0.01");
+  const TICKET_PRICE = ethers.parseEther("0.0001");
   const EVENT_DATE = Math.floor(Date.now() / 1000) + 86400;
   const EVENT_VENUE = "Test Venue";
   const EVENT_URI = "ipfs://test";
@@ -56,7 +56,7 @@ describe("EventTicket", function () {
     });
 
     it("Should revert with insufficient payment", async function () {
-      const insufficientPayment = ethers.parseEther("0.001");
+      const insufficientPayment = ethers.parseEther("0.00001");
       await expect(
         eventTicket.connect(buyer).mintTicket({ value: insufficientPayment })
       ).to.be.revertedWithCustomError(eventTicket, "InsufficientPayment");

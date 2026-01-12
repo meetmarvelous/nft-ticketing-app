@@ -7,7 +7,7 @@ async function main() {
   const EVENT_NAME = "Tech Conference 2026";
   const EVENT_SYMBOL = "TECH26";
   const MAX_SUPPLY = 1000;
-  const TICKET_PRICE = ethers.parseEther("0.01");
+  const TICKET_PRICE = ethers.parseEther("0.0001");
   const EVENT_DATE = Math.floor(new Date("2026-06-15").getTime() / 1000);
   const EVENT_VENUE = "Convention Center, San Francisco";
   const EVENT_URI = "ipfs://QmExampleHash/metadata.json";
