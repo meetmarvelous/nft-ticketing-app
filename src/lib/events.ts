@@ -110,3 +110,13 @@ export const EVENT_CATEGORIES = [
   "Sports",
   "Gaming",
 ];
+
+// Format date from unix timestamp
+export function formatDate(timestamp: number): string {
+  return new Date(timestamp * 1000).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
